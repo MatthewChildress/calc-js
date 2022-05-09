@@ -17,10 +17,9 @@ from add number and operator and does math
 
 const numBtn = document.querySelectorAll("[data-number]");
 const operateBtn = document.querySelectorAll("[data-operant]");
-const decimalBtn = document.querySelector("[data-decimal]");
 const equalsBtn = document.querySelector("equals");
 const delBtn = document.querySelector("delete");
-const clearBtn = document.querySelector("clear");
+const clearBtn = document.getElementById("clear");
 let oldInput = document.getElementById("oldInput");
 let newInput = document.getElementById("newInput");
 
@@ -40,6 +39,12 @@ operateBtn.forEach(button => {
     })
 })
 
+clearBtn.addEventListener("click", () => {
+    oldInput.textContent = ''
+    newInput.textContent = ''
+    console.log('clear')
+})
+
 /* addNum needs to check if an operant has been clicked. if so, it needs to make oldInput = newInput with operant. newInput equals current number inputs */
 function addNum(number) {
     if (number === '.' && newInput.textContent.includes('.')) return
@@ -51,10 +56,10 @@ function addNum(number) {
 /* if oldInput has an operant and newInput has a number, needs to trigger calculate() and update oldInput newInput needs to be '' */
 function operate(operant) {
     if (newInput.textContent !== '' && oldInput.textContent === '') {
-    oldInput.textContent = parseFloat(newInput.textContent)
+    oldInput.textContent = newInput.textContent
     newInput.textContent = operant
     console.log(newInput.textContent)
-    console.log('update op', typeof(oldInput.textContent))
+    console.log('update op', oldInput.textContent)
     }
     if (oldInput.textContent !== '') {
         calculate(operant)
