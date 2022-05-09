@@ -31,9 +31,7 @@ numBtn.forEach(button => {
     })
 })
 
-decimalBtn.addEventListener("click", () => {
-    addDec(decimal.textContent)
-})
+
 
 operateBtn.forEach(button => {
     button.addEventListener("click", () => {
@@ -44,21 +42,19 @@ operateBtn.forEach(button => {
 
 /* addNum needs to check if an operant has been clicked. if so, it needs to make oldInput = newInput with operant. newInput equals current number inputs */
 function addNum(number) {
+    if (number === '.' && newInput.textContent.includes('.')) return
     newInput.textContent += number
-}
-
-/*addDec needs to check if newInput already has a decimal. if so, return with nothing. if not, add decimal to the newInput string */
-function addDec(decimal) {
-    if (newInput.textContent.includes('.')) return
-    newInput.textContent += decimal
+    console.log('addnum', typeof(number))
 }
 
 // operate needs to check if newInput is empty, if so. return nothing.
 /* if oldInput has an operant and newInput has a number, needs to trigger calculate() and update oldInput newInput needs to be '' */
 function operate(operant) {
     if (newInput.textContent !== '' && oldInput.textContent === '') {
-    oldInput.textContent = newInput.textContent
+    oldInput.textContent = parseFloat(newInput.textContent)
     newInput.textContent = operant
+    console.log(newInput.textContent)
+    console.log('update op', typeof(oldInput.textContent))
     }
     if (oldInput.textContent !== '') {
         calculate(operant)
