@@ -56,11 +56,11 @@ function addDec(decimal) {
 // operate needs to check if newInput is empty, if so. return nothing.
 /* if oldInput has an operant and newInput has a number, needs to trigger calculate() and update oldInput newInput needs to be '' */
 function operate(operant) {
-    if (newInput !== '' && oldInput === '') {
-        oldInput.textContent = newInput.textContent
-        newInput.textContent = operant
+    if (newInput.textContent !== '' && oldInput.textContent === '') {
+    oldInput.textContent = newInput.textContent
+    newInput.textContent = operant
     }
-    if (oldInput !== '') {
+    if (oldInput.textContent !== '') {
         calculate(operant)
     }
 
@@ -87,7 +87,7 @@ function calculate(operant) {
         default:
             return
     }
-    oldInput.textContet = compute
+    oldInput.textContent = compute
     operation = undefined
     newInput.textContent = ''
 
