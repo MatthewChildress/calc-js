@@ -66,11 +66,12 @@ function addNum(number) {
 // operate needs to check if newInput is empty, if so. return nothing.
 /* if oldInput has an operant and newInput has a number, needs to trigger calculate() and update oldInput newInput needs to be '' */
 function operate(operant) {
-    if (newInput.textContent !== '' && oldInput.textContent === '') {
-    oldInput.textContent = newInput.textContent
-    opValue.textContent = operant
+    if (newInput.textContent !== '' && oldInput.textContent === '' && opValue.textContent === '') {
+        oldInput.textContent = newInput.textContent
+        opValue.textContent = operant
     }
     if (oldInput.textContent !== '') {
+        opValue.textContent = operant
         calculate()
     }
 
@@ -78,6 +79,7 @@ function operate(operant) {
 
 /* maybe a switch function that takes operant as case and runs the simple math based on it. needs to be floating numbers (maybe three like in python class?) */
 function calculate() {
+    if (newInput.textContent === '') return
     let compute
     const old = parseFloat(oldInput.textContent)
     const now = parseFloat(newInput.textContent)
