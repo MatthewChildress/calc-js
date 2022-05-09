@@ -22,6 +22,7 @@ const delBtn = document.getElementById("delete");
 const clearBtn = document.getElementById("clear");
 let oldInput = document.getElementById("oldInput");
 let newInput = document.getElementById("newInput");
+let opValue = document.getElementById("opValue");
 
 
 numBtn.forEach(button => {
@@ -65,7 +66,8 @@ function addNum(number) {
 /* if oldInput has an operant and newInput has a number, needs to trigger calculate() and update oldInput newInput needs to be '' */
 function operate(operant) {
     if (newInput.textContent !== '' && oldInput.textContent === '') {
-    oldInput.textContent = newInput.textContent + ' ' + operant
+    oldInput.textContent = newInput.textContent
+    opValue.textContent = operant
     newInput.textContent = ''
     }
     if (oldInput.textContent !== '') {
@@ -81,16 +83,16 @@ function calculate() {
     const now = parseFloat(newInput.textContent)
     switch(this.operant) {
         case '+':
-            compute = old + now
+            compute = add(old,now)
             break
         case '-':
-            compute = old - now
+            compute = subtract(old,now)
             break
         case '*':
-            compute = old * now
+            compute = multiply(old,now)
             break
         case '/':
-            compute = old / now
+            compute = divide(old,now)
             break
         default:
             return
@@ -100,9 +102,3 @@ function calculate() {
     newInput.textContent = ''
 }
 
-//convert inputs into integers and floats
-function screenNums() {
-
-}
-// using template literals to convert inputs into floats 
-function screenChange() {}
