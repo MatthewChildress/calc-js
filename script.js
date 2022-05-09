@@ -17,8 +17,8 @@ from add number and operator and does math
 
 const numBtn = document.querySelectorAll("[data-number]");
 const operateBtn = document.querySelectorAll("[data-operant]");
-const equalsBtn = document.querySelector("equals");
-const delBtn = document.querySelector("delete");
+const equalsBtn = document.getElementById("equals");
+const delBtn = document.getElementById("delete");
 const clearBtn = document.getElementById("clear");
 let oldInput = document.getElementById("oldInput");
 let newInput = document.getElementById("newInput");
@@ -43,6 +43,11 @@ clearBtn.addEventListener("click", () => {
     oldInput.textContent = ''
     newInput.textContent = ''
     console.log('clear')
+})
+
+delBtn.addEventListener("click", () => {
+    newInput.textContent = newInput.textContent.slice(0,-1)
+
 })
 
 /* addNum needs to check if an operant has been clicked. if so, it needs to make oldInput = newInput with operant. newInput equals current number inputs */
@@ -91,16 +96,4 @@ function calculate(operant) {
     oldInput.textContent = compute
     operation = undefined
     newInput.textContent = ''
-
-
-}
-
-// erases all .textContent
-function clear() {
-
-}
-
-// uses slice[0,-1] to keep removing last input from addNum
-function delNum() {
-
 }
