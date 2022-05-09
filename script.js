@@ -50,6 +50,10 @@ delBtn.addEventListener("click", () => {
 
 })
 
+equalsBtn.addEventListener("click", () => {
+    calculate(operant)
+})
+
 /* addNum needs to check if an operant has been clicked. if so, it needs to make oldInput = newInput with operant. newInput equals current number inputs */
 function addNum(number) {
     if (number === '.' && newInput.textContent.includes('.')) return
@@ -67,17 +71,17 @@ function operate(operant) {
     console.log('update op', oldInput.textContent)
     }
     if (oldInput.textContent !== '') {
-        calculate(operant)
+        calculate()
     }
 
 }
 
 /* maybe a switch function that takes operant as case and runs the simple math based on it. needs to be floating numbers (maybe three like in python class?) */
-function calculate(operant) {
+function calculate() {
     let compute
     const old = parseFloat(oldInput.textContent)
     const now = parseFloat(newInput.textContent)
-    switch(operant) {
+    switch(this.operant) {
         case '+':
             compute = old + now
             break
