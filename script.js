@@ -43,6 +43,7 @@ operateBtn.forEach(button => {
 clearBtn.addEventListener("click", () => {
     oldInput.textContent = ''
     newInput.textContent = ''
+    opValue.textContent = ''
     console.log('clear')
 })
 
@@ -52,14 +53,14 @@ delBtn.addEventListener("click", () => {
 })
 
 equalsBtn.addEventListener("click", () => {
-    calculate(operant)
+    calculate()
 })
 
 /* addNum needs to check if an operant has been clicked. if so, it needs to make oldInput = newInput with operant. newInput equals current number inputs */
 // if newInput === operant oldInput equals 
 function addNum(number) {
     if (number === '.' && newInput.textContent.includes('.')) return
-    newInput.textContent += number
+    newInput.textContent += number.toString()
 }
 
 // operate needs to check if newInput is empty, if so. return nothing.
@@ -68,7 +69,6 @@ function operate(operant) {
     if (newInput.textContent !== '' && oldInput.textContent === '') {
     oldInput.textContent = newInput.textContent
     opValue.textContent = operant
-    newInput.textContent = ''
     }
     if (oldInput.textContent !== '') {
         calculate()
@@ -81,18 +81,18 @@ function calculate() {
     let compute
     const old = parseFloat(oldInput.textContent)
     const now = parseFloat(newInput.textContent)
-    switch(this.operant) {
+    switch(opValue.textContent) {
         case '+':
-            compute = add(old,now)
+            compute = old + now
             break
         case '-':
-            compute = subtract(old,now)
+            compute = old - now
             break
         case '*':
-            compute = multiply(old,now)
+            compute = old * now
             break
         case '/':
-            compute = divide(old,now)
+            compute = old / now
             break
         default:
             return
