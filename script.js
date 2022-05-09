@@ -55,6 +55,7 @@ equalsBtn.addEventListener("click", () => {
 })
 
 /* addNum needs to check if an operant has been clicked. if so, it needs to make oldInput = newInput with operant. newInput equals current number inputs */
+// if newInput === operant oldInput equals 
 function addNum(number) {
     if (number === '.' && newInput.textContent.includes('.')) return
     newInput.textContent += number
@@ -65,8 +66,8 @@ function addNum(number) {
 /* if oldInput has an operant and newInput has a number, needs to trigger calculate() and update oldInput newInput needs to be '' */
 function operate(operant) {
     if (newInput.textContent !== '' && oldInput.textContent === '') {
-    oldInput.textContent = newInput.textContent
-    newInput.textContent = operant
+    oldInput.textContent = newInput.textContent + ' ' + operant
+    newInput.textContent = ''
     console.log(newInput.textContent)
     console.log('update op', oldInput.textContent)
     }
