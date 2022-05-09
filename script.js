@@ -50,7 +50,7 @@ delBtn.addEventListener("click", () => {
 })
 
 equalsBtn.addEventListener("click", () => {
-    equals()
+    
     calculate()
 })
 
@@ -79,6 +79,7 @@ function operate(operant) {
 /* maybe a switch function that takes operant as case and runs the simple math based on it. needs to be floating numbers (maybe three like in python class?) */
 function calculate() {
     if (newInput.textContent === '') return
+    equals()
     let compute
     const old = parseFloat(oldInput.textContent)
     const now = parseFloat(newInput.textContent)
@@ -104,4 +105,16 @@ function calculate() {
     newInput.textContent = ''
 }
 
+let calcValue = newInput.textContent
+
+function equals() {
+    let equalsvalue
+    if (oldInput.textContent === '' && opValue.textContent === '') {
+        return
+    }
+    else {
+        equalsvalue = oldInput.textContent + opValue.textContent + calcValue
+    }
+    oldInput.textContent = equalsvalue
+}
 
