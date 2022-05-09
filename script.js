@@ -24,14 +24,11 @@ let oldInput = document.getElementById("oldInput");
 let newInput = document.getElementById("newInput");
 let opValue = document.getElementById("opValue");
 
-
 numBtn.forEach(button => {
     button.addEventListener("click", () => {
       addNum(button.textContent)
     })
 })
-
-
 
 operateBtn.forEach(button => {
     button.addEventListener("click", () => {
@@ -53,6 +50,7 @@ delBtn.addEventListener("click", () => {
 })
 
 equalsBtn.addEventListener("click", () => {
+    equals()
     calculate()
 })
 
@@ -73,6 +71,7 @@ function operate(operant) {
     }
     if (oldInput.textContent !== '') {
         calculate()
+        opValue.textContent = operant
     }
 
 }
@@ -100,7 +99,9 @@ function calculate() {
             return
     }
     oldInput.textContent = compute
+    opValue.textContent = ''
     operation = undefined
     newInput.textContent = ''
 }
+
 
