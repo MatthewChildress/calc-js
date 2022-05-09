@@ -17,22 +17,33 @@ from add number and operator and does math
 
 const numBtn = document.querySelectorAll("[data-number]");
 const operateBtn = document.querySelectorAll("[data-operant]");
-const decimalBtn = document.querySelector("decimal");
+const decimalBtn = document.querySelector("[data-decimal]");
 const equalsBtn = document.querySelector("equals");
 const delBtn = document.querySelector("delete");
 const clearBtn = document.querySelector("clear");
-let oldInput = document.querySelector("old-input");
-let newInput = document.querySelector("new-input");
+let oldInput = document.getElementById("oldInput");
+let newInput = document.getElementById("newInput");
 
+
+numBtn.forEach(button => {
+    button.addEventListener("click", () => {
+      addNum(button.textContent)
+    })
+})
+
+decimalBtn.addEventListener("click", () => {
+    addDec(decimal.textContent)
+})
 
 /* addNum needs to check if an operant has been clicked. if so, it needs to make oldInput = newInput with operant. newInput equals current number inputs */
-function addNum() {
-
+function addNum(number) {
+    newInput.textContent += number
 }
 
 /*addDec needs to check if newInput already has a decimal. if so, return with nothing. if not, add decimal to the newInput string */
-function addDec() {
-
+function addDec(decimal) {
+    if (newInput.textContent.includes('.')) return
+    newInput.textContent += decimal
 }
 
 // operate needs to check if newInput is empty, if so. return nothing.
@@ -52,6 +63,6 @@ function clear() {
 }
 
 // uses slice[0,-1] to keep removing last input from addNum
-function del() {
+function delNum() {
 
 }
