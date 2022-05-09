@@ -55,18 +55,42 @@ function addDec(decimal) {
 
 // operate needs to check if newInput is empty, if so. return nothing.
 /* if oldInput has an operant and newInput has a number, needs to trigger calculate() and update oldInput newInput needs to be '' */
-function operate() {
-    if (newInput === '') {
-        return
+function operate(operant) {
+    if (newInput !== '' && oldInput === '') {
+        oldInput.textContent = newInput.textContent
+        newInput.textContent = operant
     }
-    if (oldInput === '') {
-        oldInput.textContent = newInput.textContent + this.operant
+    if (oldInput !== '') {
+        calculate(operant)
     }
 
 }
 
 /* maybe a switch function that takes operant as case and runs the simple math based on it. needs to be floating numbers (maybe three like in python class?) */
-function calculate() {
+function calculate(operant) {
+    let compute
+    const old = parseFloat(oldInput.textContent)
+    const now = parseFloat(newInput.textContent)
+    switch(operant) {
+        case '+':
+            compute = old + now
+            break
+        case '-':
+            compute = old - now
+            break
+        case '*':
+            compute = old * now
+            break
+        case '/':
+            compute = old / now
+            break
+        default:
+            return
+    }
+    oldInput.textContet = compute
+    operation = undefined
+    newInput.textContent = ''
+
 
 }
 
