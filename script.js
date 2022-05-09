@@ -59,7 +59,6 @@ equalsBtn.addEventListener("click", () => {
 function addNum(number) {
     if (number === '.' && newInput.textContent.includes('.')) return
     newInput.textContent += number
-    console.log('addnum', typeof(number))
 }
 
 // operate needs to check if newInput is empty, if so. return nothing.
@@ -68,8 +67,6 @@ function operate(operant) {
     if (newInput.textContent !== '' && oldInput.textContent === '') {
     oldInput.textContent = newInput.textContent + ' ' + operant
     newInput.textContent = ''
-    console.log(newInput.textContent)
-    console.log('update op', oldInput.textContent)
     }
     if (oldInput.textContent !== '') {
         calculate()
@@ -102,3 +99,10 @@ function calculate() {
     operation = undefined
     newInput.textContent = ''
 }
+
+//convert inputs into integers and floats
+function screenNums() {
+
+}
+// using template literals to convert inputs into floats 
+function screenChange() {}

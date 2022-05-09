@@ -3,7 +3,7 @@ body {
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(to right, rgb(117, 138, 233),rgb(201, 156, 31));
+    background:linear-gradient(to bottom, rgb(117, 138, 233),rgb(201, 156, 31));
     min-height:100vh;
 }
 
@@ -13,7 +13,7 @@ body {
     display:inline-grid;
     grid-template-columns: (12, 1fr);
     grid-template-rows: (25, 1fr);
-    gap:0.5em;
+    gap:0.25em;
     border:1px solid rgb(0,0,0);
     padding:0.5em;
 }
