@@ -41,7 +41,6 @@ clearBtn.addEventListener("click", () => {
     oldInput.textContent = ''
     newInput.textContent = ''
     opValue.textContent = ''
-    console.log('clear')
 })
 
 delBtn.addEventListener("click", () => {
